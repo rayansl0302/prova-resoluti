@@ -1,0 +1,25 @@
+.d-flex {
+    .mat-icon {
+        margin-top: 5px;
+        margin-left: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        color: #024b6a;
+        background-color: #f7f5f5;
+        border-radius: 50px;
+
+    }
+
+    .user {
+        padding-top: 5px;
+        padding-left: 15px;
+
+        .mat-icon {
+            margin: 0px;
+            background-color: #e5e5e5;
+            border-radius: 50px;
+            color: #fff;
+        }
+    }
+}

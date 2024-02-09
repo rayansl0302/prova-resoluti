@@ -1,0 +1,16 @@
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .buttons-nex-prev {
+        display: flex;
+        gap: 10px;
+    }
+}
+#final{
+    height: 100vh;
+}

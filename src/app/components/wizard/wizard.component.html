@@ -1,0 +1,150 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Informações Pessoais</ng-template>
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Primeiro nome, Segundo Nome"
+                    formControlName="firstCtrl" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Se descreva</mat-label>
+                <textarea matInput placeholder="Descrição"
+                    formControlName="description" required></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Gênero</mat-label>
+                <select matNativeControl formControlName="selection" required>
+                    <option value></option>
+                    <option value="opcao1">Masculino</option>
+                    <option value="opcao2">Feminino</option>
+                    <option value="opcao3">Prefiro Não Responder</option>
+                </select>
+            </mat-form-field>
+            <mat-label>Escolha uma opção</mat-label>
+
+            <mat-radio-group formControlName="radioOption">
+                <mat-radio-button value="opcaoA">Home Office</mat-radio-button>
+                <mat-radio-button value="opcaoB">Hibrido</mat-radio-button>
+                <mat-radio-button value="opcaoC">Presencial</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field>
+                <mat-label>Data de Nascimento</mat-label>
+                <input matInput type="date" formControlName="birthdate"
+                    required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Senha</mat-label>
+                <input matInput type="password" placeholder="Senha"
+                    formControlName="password" required>
+            </mat-form-field>
+            <div>
+                <button  mat-stroked-button color="primary" matStepperNext>Próximo</button>
+            </div>
+        </form>
+    </mat-step>
+    <!-- Segundo Passo -->
+    <mat-step [stepControl]="secondFormGroup" label="Preencha seu endereço">
+        <form [formGroup]="secondFormGroup">
+            <mat-form-field>
+                <mat-label>Endereço</mat-label>
+                <input matInput formControlName="address"
+                    placeholder="Ex. Rua Principal, 123">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Cidade</mat-label>
+                <input matInput formControlName="city" placeholder="Cidade">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Estado</mat-label>
+                <input matInput formControlName="state" placeholder="Estado">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>CEP</mat-label>
+                <input matInput formControlName="zip" placeholder="CEP">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>País</mat-label>
+                <input matInput formControlName="country" placeholder="País">
+            </mat-form-field>
+            <div class="buttons-nex-prev">
+                <button  mat-stroked-button color="warn" matStepperPrevious>Voltar</button>
+                <button  mat-stroked-button color="primary" matStepperNext>Próximo</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <!-- Terceiro Passo -->
+    <mat-step [stepControl]="thirdFormGroup" label="Detalhes adicionais">
+        <form [formGroup]="thirdFormGroup">
+            <mat-form-field>
+                <mat-label>Profissão</mat-label>
+                <input matInput formControlName="occupation"
+                    placeholder="Profissão">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Email">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Telefone</mat-label>
+                <input matInput formControlName="phone" placeholder="Telefone">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Website</mat-label>
+                <input matInput formControlName="website" placeholder="Website">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Redes Sociais</mat-label>
+                <input matInput formControlName="social"
+                    placeholder="Redes Sociais">
+            </mat-form-field>
+            <div class="buttons-nex-prev">
+                <button  mat-stroked-button color="warn" matStepperPrevious>Voltar</button>
+                <button  mat-stroked-button color="primary" matStepperNext>Próximo</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <!-- Quarto Passo -->
+    <mat-step [stepControl]="fourthFormGroup" label="Interesses">
+        <form [formGroup]="fourthFormGroup">
+            <mat-form-field>
+                <mat-label>Hobby</mat-label>
+                <input matInput formControlName="hobby" placeholder="Hobby">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Cor Favorita</mat-label>
+                <input matInput formControlName="favoriteColor"
+                    placeholder="Cor Favorita">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Time de Futebol</mat-label>
+                <input matInput formControlName="soccerTeam"
+                    placeholder="Time de Futebol">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Comida Preferida</mat-label>
+                <input matInput formControlName="favoriteFood"
+                    placeholder="Comida Preferida">
+            </mat-form-field>
+            <div class="buttons-nex-prev">
+                <button mat-stroked-button color="warn" matStepperPrevious>Voltar</button>
+                <button  mat-stroked-button color="primary" matStepperNext>Próximo</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step id="final" >
+        <ng-template matStepLabel >Final</ng-template>
+        <p>Você se cadastrou com Sucesso!</p>
+        <div class="buttons-nex-prev">
+            <button mat-stroked-button color="warn" matStepperPrevious>Voltar</button>
+            <button mat-stroked-button color="accent" (click)="stepper.reset()">Reiniciar</button>
+        </div>
+    </mat-step>
+</mat-stepper>
